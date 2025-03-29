@@ -1,5 +1,5 @@
 import sqlalchemy.orm as os
-from api import db, brcrypt
+from api import db, bcrypt
 from hmac import compare_digest
 
 class User(db.Model):
@@ -8,5 +8,8 @@ class User(db.Model):
     email: os.Mapped[str] = os.mapped_column(db.String(128), nullable=False)
     password: os.Mapped [str] = os.mapped_column(db.String(255), nullable=False)
 
-    def check_password(self, password):
-        return compare_digest(password, "password")
+    def set_password(self, raw_password):
+        self.password = bcrypt.generate_password_hash(raw_password).decode('utf-8')
+
+    def check_password(self, input_password):
+        return bcrypt.check_password_hash(self.password, input_password)

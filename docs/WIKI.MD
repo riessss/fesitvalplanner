@@ -31,6 +31,8 @@ Planning:
    Step 3 - Artist and event models + (ADMIN)
    Step 4 - Feed generation 
    Step 5 - Error handling
-   Step 6 - Polish
-   Step 7 - Deploy and Containerization
+   Step 6 - Add middle ware and extra security
+   Step 7 - Polish 
+   Step 9 - Make Front-End
+   Step 8 - Deploy and Containerization
 
